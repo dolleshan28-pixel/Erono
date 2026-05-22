@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Support</title>
+
+  <style>
+    body {
+      margin: 0;
+      background-color: green;
+      font-family: Arial, sans-serif;
+    }
+
+    .title {
+      background-color: red;
+      font-size: 70pt;
+      font-weight: bold;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .support-box {
+      background-color: lightgray;
+      margin: 40px auto;
+      padding: 30px;
+      width: 70%;
+      border-radius: 15px;
+    }
+
+    .support-box p {
+      font-size: 20pt;
+      text-align: center;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
+      font-size: 16pt;
+      border-radius: 10px;
+      border: 2px solid black;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 15px;
+      font-size: 18pt;
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: royalblue;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Home Button -->
+  <a href="Erono.html">
+    <button>⟵ Home</button>
+  </a>
+
+  <p class="title">CUSTOMER SUPPORT</p>
+
+  <div class="support-box">
+    <p>Need help? Send us a message and we’ll try to help you.</p>
+
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Describe your issue" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+</body>
+</html>

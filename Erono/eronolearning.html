@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erono Learn</title>
+
+<style>
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#eff6ff;
+}
+
+header{
+  background:#2563eb;
+  color:white;
+  text-align:center;
+  padding:30px;
+}
+
+header h1{
+  margin:0;
+  font-size:50px;
+}
+
+.hero{
+  text-align:center;
+  padding:70px 20px;
+}
+
+.hero h2{
+  font-size:48px;
+  color:#1e3a8a;
+}
+
+.hero p{
+  font-size:22px;
+  color:#374151;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  padding:40px;
+}
+
+.card{
+  background:white;
+  padding:30px;
+  border-radius:25px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+  transition:0.2s;
+  cursor:pointer;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card h3{
+  margin-top:0;
+  font-size:32px;
+  color:#2563eb;
+}
+
+.card p{
+  font-size:18px;
+  color:#4b5563;
+}
+
+.card button{
+  margin-top:20px;
+  padding:14px 20px;
+  border:none;
+  border-radius:12px;
+  background:#2563eb;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.progress-area{
+  padding:40px;
+}
+
+.progress-title{
+  font-size:34px;
+  color:#1e3a8a;
+}
+
+.progress-bar{
+  width:100%;
+  height:30px;
+  background:#dbeafe;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress{
+  width:0%;
+  height:100%;
+  background:#2563eb;
+  transition:0.3s;
+}
+
+#progressText{
+  margin-top:10px;
+  font-size:20px;
+}
+
+.login-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.login-box{
+  background:white;
+  width:90%;
+  max-width:420px;
+  padding:40px;
+  border-radius:25px;
+  text-align:center;
+}
+
+.login-box h2{
+  color:#2563eb;
+}
+
+.login-box input{
+  width:100%;
+  padding:14px;
+  margin-top:15px;
+  border-radius:10px;
+  border:1px solid #cbd5e1;
+  font-size:16px;
+}
+
+.login-box button{
+  width:100%;
+  padding:14px;
+  margin-top:20px;
+  border:none;
+  border-radius:12px;
+  background:#2563eb;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.back button{
+  width:25%;
+  padding:14px;
+  margin-top:20px;
+  border:none;
+  border-radius:12px;
+  background:#2563eb;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+}
+
+footer{
+  background:white;
+  padding:30px;
+  text-align:center;
+  margin-top:50px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<div class="login-modal" id="loginModal">
+
+<div class="login-box">
+
+<h2 id="authTitle">
+Login to Erono Learn
+</h2>
+
+<input
+type="text"
+id="username"
+placeholder="Username"
+>
+
+<input
+type="email"
+id="email"
+placeholder="Email"
+style="display:none;"
+>
+
+<input
+type="password"
+id="password"
+placeholder="Password"
+>
+
+<button
+onclick="loginUser()"
+id="authButton"
+>
+Login
+</button>
+
+<p style="margin-top:20px;">
+
+<span id="toggleText">
+Don't have an account?
+</span>
+
+<span
+id="toggleLink"
+onclick="toggleSignup()"
+style="
+color:#2563eb;
+cursor:pointer;
+font-weight:bold;
+"
+>
+Sign Up
+</span>
+
+</p>
+
+</div>
+</div>
+<button class="back button" onclick="index.html">HOME</button>
+<header>
+<h1>ERONO LEARN</h1>
+</header>
+
+<section class="hero">
+
+<h2>
+Prepare for the 11+
+</h2>
+
+<p>
+Practice Maths, English,
+Reasoning and Mock Tests.
+</p>
+
+</section>
+
+<section class="cards">
+
+<div
+class="card"
+onclick="openSubjectPractice('English')"
+>
+
+<h3>📘 English</h3>
+
+<p>
+Grammar, spelling,
+vocabulary and comprehension.
+</p>
+
+<button>
+Start English
+</button>
+
+</div>
+
+<div
+class="card"
+onclick="openSubjectPractice('Maths')"
+>
+
+<h3>➗ Maths</h3>
+
+<p>
+Arithmetic, fractions,
+algebra and percentages.
+</p>
+
+<button>
+Start Maths
+</button>
+
+</div>
+
+<div
+class="card"
+onclick="openSubjectPractice('Reasoning')"
+>
+
+<h3>🧠 Reasoning</h3>
+
+<p>
+Verbal and non-verbal
+reasoning practice.
+</p>
+
+<button>
+Start Reasoning
+</button>
+
+</div>
+
+<div
+class="card"
+onclick="openSubjectPractice('Mock Tests')"
+>
+
+<h3>📊 Mock Tests</h3>
+
+<p>
+Timed 11+ style tests
+with results and explanations.
+</p>
+
+<button>
+Start Mock Test
+</button>
+
+</div>
+
+</section>
+
+<section class="progress-area">
+
+<h2 class="progress-title">
+Learning Progress
+</h2>
+
+<div class="progress-bar">
+
+<div
+class="progress"
+id="progressFill"
+></div>
+
+</div>
+
+<p id="progressText">
+0% complete this week
+</p>
+
+</section>
+
+<footer>
+© 2026 ERONO LEARN
+</footer>
+
+<script>
+
+/* VARIABLES */
+
+let signupMode = false;
+
+let score = 0;
+let totalAnswered = 0;
+
+let currentQuestion = 0;
+let totalQuestions = 8;
+let correctAnswers = 0;
+
+let usedQuestions = [];
+let usedEnglish = [];
+let usedMock = [];
+
+/* LOGIN */
+
+function loginUser(){
+
+const username =
+document.getElementById(
+"username"
+).value;
+
+const password =
+document.getElementById(
+"password"
+).value;
+
+const email =
+document.getElementById(
+"email"
+).value;
+
+if(signupMode){
+
+if(
+username.length > 2 &&
+password.length > 4 &&
+email.includes("@")
+){
+
+const account = {
+username,
+password,
+email
+};
+
+localStorage.setItem(
+"eronoAccount",
+JSON.stringify(account)
+);
+
+alert(
+"Account created! 🎉"
+);
+
+toggleSignup();
+
+}else{
+
+alert(
+"Fill all fields correctly."
+);
+
+}
+
+}else{
+
+const savedAccount =
+JSON.parse(
+localStorage.getItem(
+"eronoAccount"
+)
+);
+
+if(
+savedAccount &&
+username === savedAccount.username &&
+password === savedAccount.password
+){
+
+document.getElementById(
+"loginModal"
+).style.display = "none";
+
+alert(
+"Welcome back " +
+username +
+"! 🚀"
+);
+
+}else{
+
+alert(
+"Incorrect login."
+);
+
+}
+
+}
+
+}
+
+/* SIGNUP TOGGLE */
+
+function toggleSignup(){
+
+signupMode = !signupMode;
+
+const title =
+document.getElementById(
+"authTitle"
+);
+
+const button =
+document.getElementById(
+"authButton"
+);
+
+const toggleText =
+document.getElementById(
+"toggleText"
+);
+
+const toggleLink =
+document.getElementById(
+"toggleLink"
+);
+
+const emailInput =
+document.getElementById(
+"email"
+);
+
+if(signupMode){
+
+title.textContent =
+"Create an Erono Account";
+
+button.textContent =
+"Create Account";
+
+toggleText.textContent =
+"Already have an account?";
+
+toggleLink.textContent =
+"Login";
+
+emailInput.style.display =
+"block";
+
+}else{
+
+title.textContent =
+"Login to Erono Learn";
+
+button.textContent =
+"Login";
+
+toggleText.textContent =
+"Don't have an account?";
+
+toggleLink.textContent =
+"Sign Up";
+
+emailInput.style.display =
+"none";
+
+}
+
+}
+
+/* PROGRESS */
+
+function updateProgressBar(){
+
+let progress = 0;
+
+if(totalAnswered > 0){
+
+progress =
+Math.round(
+(score / totalAnswered) * 100
+);
+
+}
+
+document.getElementById(
+"progressFill"
+).style.width =
+progress + "%";
+
+document.getElementById(
+"progressText"
+).textContent =
+progress +
+"% complete this week";
+
+}
+
+/* SUBJECTS */
+
+function openSubjectPractice(subject){
+
+currentQuestion = 0;
+correctAnswers = 0;
+
+usedQuestions = [];
+usedEnglish = [];
+usedMock = [];
+
+const practiceWindow =
+window.open(
+"",
+subject + "Practice",
+"width=1300,height=900"
+);
+
+let subjectEmoji = "📘";
+
+if(subject === "Maths"){
+subjectEmoji = "➗";
+}
+
+if(subject === "Reasoning"){
+subjectEmoji = "🧠";
+}
+
+if(subject === "Mock Tests"){
+subjectEmoji = "📊";
+}
+
+practiceWindow.document.write(`
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>${subject}</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:
+linear-gradient(
+135deg,
+#dbeafe,
+#eff6ff
+);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.layout{
+display:flex;
+gap:30px;
+width:95%;
+max-width:1300px;
+}
+
+.island{
+flex:1;
+background:white;
+padding:50px;
+border-radius:30px;
+box-shadow:
+0 10px 40px
+rgba(0,0,0,0.15);
+}
+
+.side-panel{
+width:280px;
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:
+0 10px 40px
+rgba(0,0,0,0.15);
+}
+
+.side-panel h2{
+color:#2563eb;
+}
+
+.stat-box{
+background:#eff6ff;
+padding:20px;
+border-radius:18px;
+margin-bottom:20px;
+text-align:center;
+}
+
+.stat-box span{
+display:block;
+margin-top:10px;
+font-size:28px;
+font-weight:bold;
+color:#2563eb;
+}
+
+h1{
+font-size:48px;
+color:#2563eb;
+}
+
+.question{
+font-size:32px;
+margin:40px 0;
+}
+
+.answers{
+display:grid;
+gap:15px;
+}
+
+.answer{
+padding:18px;
+border:none;
+border-radius:14px;
+background:#dbeafe;
+font-size:18px;
+cursor:pointer;
+}
+
+.answer:hover{
+background:#bfdbfe;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="layout">
+
+<div class="island">
+
+<h1>
+${subjectEmoji} ${subject}
+</h1>
+
+<div
+class="question"
+id="question"
+></div>
+
+<div
+class="answers"
+id="answers"
+></div>
+
+</div>
+
+<div class="side-panel">
+
+<h2>
+📊 Test Stats
+</h2>
+
+<div class="stat-box">
+<p>Question</p>
+<span id="sideQuestion">
+1 / 8
+</span>
+</div>
+
+<div class="stat-box">
+<p>Correct</p>
+<span id="sideCorrect">
+0
+</span>
+</div>
+
+<div class="stat-box">
+<p>Score</p>
+<span id="sidePercent">
+0%
+</span>
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
+
+`);
+
+practiceWindow.document.close();
+
+const questionEl =
+practiceWindow.document
+.getElementById("question");
+
+const answersEl =
+practiceWindow.document
+.getElementById("answers");
+
+const sideQuestion =
+practiceWindow.document
+.getElementById("sideQuestion");
+
+const sideCorrect =
+practiceWindow.document
+.getElementById("sideCorrect");
+
+const sidePercent =
+practiceWindow.document
+.getElementById("sidePercent");
+
+/* RENDER QUESTION */
+
+function renderQuestion(){
+
+sideQuestion.textContent =
+(currentQuestion + 1) +
+" / " +
+totalQuestions;
+
+sideCorrect.textContent =
+correctAnswers;
+
+const livePercent =
+currentQuestion > 0
+? Math.round(
+(correctAnswers /
+currentQuestion) * 100
+)
+: 0;
+
+sidePercent.textContent =
+livePercent + "%";
+
+/* TEST COMPLETE */
+
+if(
+currentQuestion >=
+totalQuestions
+){
+
+const finalScore =
+Math.round(
+(correctAnswers /
+totalQuestions) * 100
+);
+
+questionEl.innerHTML =
+"🎉 Test Complete!<br><br>" +
+"You scored " +
+correctAnswers +
+" out of " +
+totalQuestions +
+"<br><br>" +
+"Final Score: " +
+finalScore +
+"%";
+
+answersEl.innerHTML =
+'<button class="answer" onclick="location.reload()">Restart</button>';
+
+return;
+
+}
+
+let question = "";
+let answers = [];
+let correctIndex = 0;
+let explanation = "";
+
+/* ENGLISH */
+
+if(subject === "English"){
+
+const englishQuestions = [
+
+{
+q:"What is a synonym of happy?",
+a:["Joyful","Sad","Angry","Slow"],
+c:0,
+e:"Joyful means happy."
+},
+
+{
+q:"Choose the correct sentence.",
+a:[
+"She goes to school.",
+"She go school.",
+"She going school.",
+"She gone school."
+],
+c:0,
+e:"'She goes to school.' is correct."
+},
+
+{
+q:"What is the opposite of cold?",
+a:["Hot","Dark","Wet","Fast"],
+c:0,
+e:"Hot is the opposite of cold."
+},
+
+{
+q:"Which word is a noun?",
+a:["Quickly","Teacher","Blue","Running"],
+c:1,
+e:"Teacher is a noun."
+}
+
+];
+
+const availableEnglish =
+englishQuestions.filter(
+(_,index)=>
+!usedEnglish.includes(index)
+);
+
+const randomIndex =
+Math.floor(
+Math.random() *
+availableEnglish.length
+);
+
+const selected =
+availableEnglish[randomIndex];
+
+const originalIndex =
+englishQuestions.indexOf(selected);
+
+usedEnglish.push(originalIndex);
+
+question = selected.q;
+answers = selected.a;
+correctIndex = selected.c;
+explanation = selected.e;
+
+}
+
+/* MATHS */
+
+if(subject === "Maths"){
+
+let uniqueKey;
+
+do{
+
+const a =
+Math.floor(
+Math.random()*20
+)+1;
+
+const b =
+Math.floor(
+Math.random()*20
+)+1;
+
+uniqueKey =
+a + "-" + b;
+
+if(
+!usedQuestions.includes(
+uniqueKey
+)
+){
+
+usedQuestions.push(
+uniqueKey
+);
+
+const correct =
+a + b;
+
+question =
+"What is " +
+a +
+" + " +
+b +
+"?";
+
+answers = [
+correct,
+correct+2,
+correct-1,
+correct+4
+];
+
+answers.sort(
+()=>Math.random()-0.5
+);
+
+correctIndex =
+answers.indexOf(correct);
+
+explanation =
+a +
+" + " +
+b +
+" = " +
+correct;
+
+break;
+
+}
+
+}while(true);
+
+}
+
+/* REASONING */
+
+if(subject === "Reasoning"){
+
+question =
+"Which number comes next: 2, 4, 8, 16, ?";
+
+answers = [
+"18",
+"24",
+"32",
+"20"
+];
+
+correctIndex = 2;
+
+explanation =
+"The pattern doubles each time.";
+
+}
+
+/* MOCK TESTS */
+
+if(subject === "Mock Tests"){
+
+const mockTests = [
+
+{
+q:"Capital of France?",
+a:[
+"Paris",
+"London",
+"Berlin",
+"Madrid"
+],
+c:0,
+e:"Paris is the capital."
+},
+
+{
+q:"12 × 4 = ?",
+a:[
+"36",
+"48",
+"52",
+"44"
+],
+c:1,
+e:"12 × 4 = 48."
+},
+
+{
+q:"Which planet is known as the Red Planet?",
+a:[
+"Earth",
+"Mars",
+"Venus",
+"Jupiter"
+],
+c:1,
+e:"Mars is called the Red Planet."
+}
+
+];
+
+const availableMocks =
+mockTests.filter(
+(_,index)=>
+!usedMock.includes(index)
+);
+
+const randomIndex =
+Math.floor(
+Math.random() *
+availableMocks.length
+);
+
+const selected =
+availableMocks[randomIndex];
+
+const originalIndex =
+mockTests.indexOf(selected);
+
+usedMock.push(originalIndex);
+
+question = selected.q;
+answers = selected.a;
+correctIndex = selected.c;
+explanation = selected.e;
+
+}
+
+/* DISPLAY */
+
+questionEl.innerHTML =
+"Question " +
+(currentQuestion + 1) +
+" of " +
+totalQuestions +
+"<br><br>" +
+question;
+
+answersEl.innerHTML = "";
+
+answers.forEach(
+(answer,index)=>{
+
+const btn =
+practiceWindow.document
+.createElement("button");
+
+btn.className =
+"answer";
+
+btn.textContent =
+answer;
+
+btn.onclick = ()=>{
+
+totalAnswered++;
+currentQuestion++;
+
+if(
+index === correctIndex
+){
+
+correctAnswers++;
+score++;
+
+practiceWindow.alert(
+"Correct! 🎉"
+);
+
+}else{
+
+practiceWindow.alert(
+"Incorrect! ❌\n\n" +
+explanation
+);
+
+}
+
+updateProgressBar();
+
+renderQuestion();
+
+};
+
+answersEl.appendChild(btn);
+
+});
+
+}
+
+renderQuestion();
+
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Eshan Doll YouTube</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      background-color: rgba(255,255,255,0.08);
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #d1d5db;
+      margin-bottom: 30px;
+    }
+
+    .youtube-btn {
+      padding: 15px 35px;
+      font-size: 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background-color: #ff0000;
+      color: white;
+      transition: 0.2s ease;
+    }
+
+    .youtube-btn:hover {
+      transform: scale(1.05);
+      background-color: #cc0000;
+    }
+
+    /* Back Button */
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #374151;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #4b5563;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Back Button -->
+  <button class="back-btn" onclick="window.location.href='erono.html'">
+    ⬅ Back
+  </button>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>🎥 Eshan Doll</h1>
+
+    <p>
+      Visit my official YouTube channel!
+    </p>
+
+    <button class="youtube-btn" onclick="goToYouTube()">
+      Go to YouTube
+    </button>
+<br>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/PJHyP7swfHk">
+</iframe>
+  </div>
+
+  <script>
+    function goToYouTube() {
+      let confirmRedirect = confirm(
+        "Are you sure you want to be redirected to YouTube?"
+      );
+
+      if (confirmRedirect) {
+        window.location.href = "https://youtube.com/@eshandoll";
+      }
+    }
+  </script>
+
+</body>
+</html>
